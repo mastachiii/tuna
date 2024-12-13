@@ -1,8 +1,7 @@
 const pool = require("./pool");
-// const checkQuotes = require("../helpers/checkQuotes");
 
-async function getAllBooks() {
-    const { rows } = await pool.query("SELECT * FROM books");
+function getAllBooks() {
+    const { rows } = pool.query("SELECT * FROM books");
 
     return rows;
 }
@@ -27,17 +26,31 @@ function removeAllBooks() {
     pool.query("DROP TABLE books");
 }
 
-removeAllBooks();
+function removeBook(id) {
+    pool.query("DELETE FROM books WHERE id = $1", [id]);
+}
 
-// addBook(
-//     "The Firm",
-//     "John Grisham",
-//     '{"Fiction", "Thriller", "Mystery"}',
-//     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1687344151i/1941607.jpg",
-//     "Just read it, it's that great",
-//     "1"
-// );
+// Can't do dynamic updating...
+function updateBook({ id, field, value }) {
+    switch (field) {
+        case "title":
+            pool.query("UPDATE books SET title = $1 WHERE id = $2", [value, id]);
+            break;
+        case "genre":
+            pool.query("UPDATE books SET genre = $1 WHERE id = $2", [value, id]);
+            break;
+        case "author":
+            pool.query("UPDATE books SET author = $1 WHERE id = $2", [value, id]);
+            break;
+        case "image":
+            pool.query("UPDATE books SET image = $1 WHERE id = $2", [value, id]);
+            break;
+        case "review":
+            pool.query("UPDATE books SET review = $1 WHERE id = $2", [value, id]);
+            break;
+        case "votes":
+            pool.query("UPDATE books SET votes = votes + 1 WHERE id = $1", [id]);
+    }
+}
 
-//TODO: remove a book
-
-//TODO: update a book
+module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook };
