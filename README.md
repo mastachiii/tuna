@@ -1,2 +1,2 @@
-# tuna
-a book recommendation list for everyone
+# Tuna
+A book recommendation list that everyone can contribute to
