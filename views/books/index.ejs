@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head.ejs', {title: 'Books'})%> <% console.log(books) %> <% books.forEach(book => { %>
+    <%- include('../partials/navbar') %> <%- include('../partials/head', {title: 'Books'})%> <% console.log(books) %> <% books.forEach(book => { %>
     <img src="<%= book.image %>" alt="" />
     <h4><%= book.title %></h4>
     <% }) %>
