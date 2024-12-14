@@ -1,18 +1,13 @@
 const express = require("express");
+const controller = require("../controllers/booksController");
 const router = express.Router();
 
 // GET
-router.get("/", (req, res) => {
-    res.send("this is where books will be displayed");
-});
+router.get("/", (req, res) => controller.getIndex(req, res));
 
-router.get("/add", (req, res) => {
-    res.send("form for adding new book");
-});
+router.get("/add", (req, res) => controller.getDetails(req, res));
 
-router.get("/search", (req, res) => {
-    res.send("search results");
-});
+router.get("/search", (req, res) => controller.getSearchResults(req, res));
 
 router.get("/:id", (req, res) => {
     res.send("book details");

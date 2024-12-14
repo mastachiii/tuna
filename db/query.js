@@ -1,7 +1,7 @@
 const pool = require("./pool");
 
-function getAllBooks() {
-    const { rows } = pool.query("SELECT * FROM books");
+async function getAllBooks() {
+    const { rows } = await pool.query("SELECT * FROM books");
 
     return rows;
 }

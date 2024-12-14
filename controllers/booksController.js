@@ -1,23 +1,23 @@
 const db = require("../db/query");
 
-async function getBookIndex(req, res) {
+async function getIndex(req, res) {
     const books = await db.getAllBooks();
 
-    res.render("books/index");
+    res.render("books/index", { books });
 }
 
-async function getBookDetails(req, res, id) {
+async function getDetails(req, res, id) {
     const book = await db.getBook(id);
 
     res.render("books/details");
 }
 
-function getBookForm(req, res) {
+function getForm(req, res) {
     res.render("books/form");
 }
 
-function getBookSearchResults(req, res) {
+function getSearchResults(req, res) {
     res.render("books/search");
 }
 
-module.exports = { getBookIndex, getBookDetails, getBookForm, getBookSearchResults };
+module.exports = { getIndex, getDetails, getForm, getSearchResults };
