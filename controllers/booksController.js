@@ -3,8 +3,6 @@ const db = require("../db/query");
 async function getIndex(req, res) {
     const books = await db.getAllBooks();
 
-    console.log(books)
-
     res.render("books/index", { books });
 }
 
@@ -17,7 +15,7 @@ async function getDetails(req, res, id) {
 async function getAuthors(req, res) {
     const authors = await db.getAllAuthors();
 
-    console.log(authors);
+    res.render("books/authors", { authors: authors });
 }
 
 function getForm(req, res) {
