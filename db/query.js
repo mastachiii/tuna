@@ -20,13 +20,13 @@ async function getAllAuthors() {
 
 // TODO: filtered searches (genre, author, title)
 
-function addBook({ title, author, genre, image, review, votes }) {
+function addBook({ title, author, genre, image, review }) {
     pool.query(
         `INSERT INTO books (title, author, genre, image, review, votes)
          VALUES
-         ($1, $2, $3, $4, $5, $6);
+         ($1, $2, $3, $4, $5, 1);
     `,
-        [title, author, genre, image, review, votes]
+        [title, author, genre, image, review]
     );
 }
 
@@ -60,5 +60,6 @@ function updateBook({ id, field, value }) {
             pool.query("UPDATE books SET votes = votes + 1 WHERE id = $1", [id]);
     }
 }
+
 
 module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors };

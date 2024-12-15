@@ -28,4 +28,10 @@ function get_search_results(req, res) {
     res.render("books/search");
 }
 
-module.exports = { get_index, get_details, get_form, get_search_results, get_authors };
+async function add_book(req, res) {
+    await db.addBook(req.body);
+
+    res.redirect("/");
+}
+
+module.exports = { get_index, get_details, get_form, get_search_results, get_authors, add_book };

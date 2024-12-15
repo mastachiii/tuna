@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS books (
     author VARCHAR ( 255 ),
     genre text[],
     image VARCHAR ( 255 ),
-    review VARCHAR ( 255 ),
+    review text,
     votes INTEGER
 );
 

@@ -13,4 +13,7 @@ router.get("/authors", (req, res) => controller.get_authors(req, res));
 
 router.get("/:id", (req, res) => controller.get_details(req, res));
 
+// POST
+router.post("/", (req, res) => controller.add_book(req, res));
+
 module.exports = router;
