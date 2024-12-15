@@ -10,8 +10,9 @@ app.set("view engine", "ejs");
 // Middlewares
 app.use("/books", booksRouter);
 
+// Get reqs
 app.get("/", (req, res) => {
-    res.send("HOMEPAGE");
+    res.render('homepage');
 });
 
 const PORT = process.env.PORT || 8080;

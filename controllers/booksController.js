@@ -13,7 +13,7 @@ async function getDetails(req, res, id) {
 }
 
 function getForm(req, res) {
-    res.render("books/form");
+    res.render("books/create");
 }
 
 function getSearchResults(req, res) {

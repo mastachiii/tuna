@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/navbar') %> <%- include('../partials/head', {title: 'Books'})%> <% console.log(books) %> <% books.forEach(book => { %>
-    <img src="<%= book.image %>" alt="" />
-    <h4><%= book.title %></h4>
-    <% }) %>
-    <body></body>
+    <body>
+        <%- include('../partials/navbar') %>
+        <a href="books/add" style="display: block">add new book</a>
+        <%- include('../partials/head', {title: 'Books'})%> <% books.forEach(book => { %>
+        <img src="<%= book.image %>" alt="" />
+        <h4><%= book.title %></h4>
+        <% }) %>
+    </body>
 </html>
