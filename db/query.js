@@ -7,10 +7,18 @@ async function getAllBooks() {
 }
 
 function getBook(id) {
-    const { row } = pool.query("SELECT * FROM books WHERE id = $1", [id]);
+    const { rows } = pool.query("SELECT * FROM books WHERE id = $1", [id]);
 
-    return row;
+    return rows;
 }
+
+async function getAllAuthors() {
+    const { rows } = await pool.query("SELECT author FROM books GROUP BY author");
+
+    return rows;
+}
+
+// TODO: filtered searches (genre, author, title)
 
 function addBook({ title, author, genre, image, review, votes }) {
     pool.query(
@@ -53,4 +61,4 @@ function updateBook({ id, field, value }) {
     }
 }
 
-module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook };
+module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors };
