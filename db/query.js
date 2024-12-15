@@ -18,7 +18,19 @@ async function getAllAuthors() {
     return rows;
 }
 
-// TODO: filtered searches (genre, author, title)
+async function getBooksByGenre(genre) {
+    genre = genre[0].toUpperCase() + genre.slice(1);
+
+    const { rows } = await pool.query("SELECT * FROM books WHERE $1 LIKE ANY(genre)", [genre]);
+
+    return rows;
+}
+
+async function getBooksByAuthor(author) {
+    const { rows } = await pool.query("SELECT * FROM books WHERE author = $1", [author]);
+
+    return rows;
+}
 
 function addBook({ title, author, genre, image, review }) {
     pool.query(
@@ -61,5 +73,4 @@ function updateBook({ id, field, value }) {
     }
 }
 
-
-module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors };
+module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors, getBooksByGenre };

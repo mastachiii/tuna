@@ -28,8 +28,14 @@ function get_search_results(req, res) {
     res.render("books/search");
 }
 
-function get_categories(req, res) {
-    res.render("books/categories");
+function get_genres(req, res) {
+    res.render("books/genres");
+}
+
+async function get_index_by_genre(req, res) {
+    const books = await db.getBooksByGenre(req.params.genre);
+
+    res.render("books/index", { books });
 }
 
 async function add_book(req, res) {
@@ -38,4 +44,4 @@ async function add_book(req, res) {
     res.redirect("/");
 }
 
-module.exports = { get_index, get_details, get_form, get_search_results, get_authors, get_categories, add_book };
+module.exports = { get_index, get_details, get_form, get_search_results, get_authors, get_genres, add_book, get_index_by_genre };

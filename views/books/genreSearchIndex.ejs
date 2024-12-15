@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head')%>
+    <body>
+        <% books.forEach(book => { %>
+        <img src="<%= book.image %>" alt="" />
+        <h4><a href="books/<%=book.id%>"><%= book.title %></a></h4>
+        <% }) %>
+    </body>
+</html>
