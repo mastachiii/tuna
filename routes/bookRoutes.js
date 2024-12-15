@@ -17,6 +17,8 @@ router.get("/:id", (req, res) => controller.get_details(req, res));
 
 router.get("/genres/:genre", (req, res) => controller.get_index_by_genre(req, res));
 
+router.get("/authors/:author", (req, res) => controller.get_index_by_author(req, res));
+
 // POST
 router.post("/", (req, res) => controller.add_book(req, res));
 

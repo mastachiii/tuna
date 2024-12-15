@@ -5,7 +5,7 @@
         <%- include('../partials/navbar') %>
         <!---->
         <% authors.forEach(a =>{%>
-        <p><%= a.author %></p>
+        <a href="authors/<%= a.author.toLowerCase().split(' ').join('-') %>"><%= a.author %></a>
         <%}) %>
     </body>
 </html>

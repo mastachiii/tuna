@@ -27,7 +27,7 @@ async function getBooksByGenre(genre) {
 }
 
 async function getBooksByAuthor(author) {
-    const { rows } = await pool.query("SELECT * FROM books WHERE author = $1", [author]);
+    const { rows } = await pool.query("SELECT * FROM books WHERE author ILIKE $1", [author]);
 
     return rows;
 }
@@ -73,4 +73,4 @@ function updateBook({ id, field, value }) {
     }
 }
 
-module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors, getBooksByGenre };
+module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors, getBooksByGenre, getBooksByAuthor };

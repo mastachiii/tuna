@@ -38,10 +38,17 @@ async function get_index_by_genre(req, res) {
     res.render("books/index", { books });
 }
 
+async function get_index_by_author(req, res) {
+    const author = req.params.author.split("-").join(" ");
+    const books = await db.getBooksByAuthor(author);
+
+    res.render("books/index", { books });
+}
+
 async function add_book(req, res) {
     await db.addBook(req.body);
 
     res.redirect("/");
 }
 
-module.exports = { get_index, get_details, get_form, get_search_results, get_authors, get_genres, add_book, get_index_by_genre };
+module.exports = { get_index, get_details, get_form, get_search_results, get_authors, get_genres, add_book, get_index_by_genre, get_index_by_author };
