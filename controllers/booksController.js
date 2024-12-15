@@ -6,10 +6,12 @@ async function getIndex(req, res) {
     res.render("books/index", { books });
 }
 
-async function getDetails(req, res, id) {
-    const book = await db.getBook(id);
+async function getDetails(req, res) {
+    const book = await db.getBook(req.params.id);
 
-    res.render("books/details");
+    console.log(book);
+
+    res.render("books/details", { book: book });
 }
 
 async function getAuthors(req, res) {

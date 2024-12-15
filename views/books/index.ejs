@@ -5,7 +5,7 @@
         <a href="books/add" style="display: block">add new book</a>
         <%- include('../partials/head', {title: 'Books'})%> <% books.forEach(book => { %>
         <img src="<%= book.image %>" alt="" />
-        <h4><%= book.title %></h4>
+        <h4><a href="books/<%=book.id%>"><%= book.title %></a></h4>
         <% }) %>
     </body>
 </html>

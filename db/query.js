@@ -6,10 +6,10 @@ async function getAllBooks() {
     return rows;
 }
 
-function getBook(id) {
-    const { rows } = pool.query("SELECT * FROM books WHERE id = $1", [id]);
+async function getBook(id) {
+    const { rows } = await pool.query("SELECT * FROM books WHERE id = $1", [id]);
 
-    return rows;
+    return rows[0];
 }
 
 async function getAllAuthors() {

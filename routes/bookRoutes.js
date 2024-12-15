@@ -11,8 +11,6 @@ router.get("/search", (req, res) => controller.getSearchResults(req, res));
 
 router.get("/authors", (req, res) => controller.getAuthors(req, res));
 
-router.get("/:id", (req, res) => {
-    res.send("book details");
-});
+router.get("/:id", (req, res) => controller.getDetails(req, res));
 
 module.exports = router;
