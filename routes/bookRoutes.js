@@ -11,6 +11,8 @@ router.get("/search", (req, res) => controller.get_search_results(req, res));
 
 router.get("/authors", (req, res) => controller.get_authors(req, res));
 
+router.get('/categories', (req, res) => controller.get_categories(req, res))
+
 router.get("/:id", (req, res) => controller.get_details(req, res));
 
 // POST
