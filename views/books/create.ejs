@@ -9,6 +9,29 @@
             <input type="text" id="author" name="author" required />
             <fieldset>
                 <legend>Genre:</legend>
+                <%- include('../partials/genreOption',{genre: 'Fiction'}) %>
+                <!--stupid fucking formatter-->
+                <%- include('../partials/genreOption',{genre: 'Nonfiction'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Crime'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Romance'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Fantasy'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Action'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Adventure'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Mystery'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Horror'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Drama'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'History'}) %>
+                <!---->
+                <%- include('../partials/genreOption',{genre: 'Philosophy'}) %>
             </fieldset>
             <label for="image">Image (URL):</label>
             <input type="text" id="image" name="image" />
