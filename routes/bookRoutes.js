@@ -3,14 +3,14 @@ const controller = require("../controllers/booksController");
 const router = express.Router();
 
 // GET
-router.get("/", (req, res) => controller.getIndex(req, res));
+router.get("/", (req, res) => controller.get_index(req, res));
 
-router.get("/add", (req, res) => controller.getForm(req, res));
+router.get("/add", (req, res) => controller.get_form(req, res));
 
-router.get("/search", (req, res) => controller.getSearchResults(req, res));
+router.get("/search", (req, res) => controller.get_search_results(req, res));
 
-router.get("/authors", (req, res) => controller.getAuthors(req, res));
+router.get("/authors", (req, res) => controller.get_authors(req, res));
 
-router.get("/:id", (req, res) => controller.getDetails(req, res));
+router.get("/:id", (req, res) => controller.get_details(req, res));
 
 module.exports = router;
