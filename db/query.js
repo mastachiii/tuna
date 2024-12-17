@@ -50,6 +50,10 @@ function removeBook(id) {
     pool.query("DELETE FROM books WHERE id = $1", [id]);
 }
 
+function removeBooksByAuthor(author) {
+    pool.query("DELETE FROM books WHERE author ILIKE $1", [author]);
+}
+
 // Can't do dynamic updating...
 function updateBook({ id, field, value }) {
     switch (field) {
@@ -76,4 +80,4 @@ function updateBook({ id, field, value }) {
     }
 }
 
-module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors, getBooksByGenre, getBooksByAuthor };
+module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors, getBooksByGenre, getBooksByAuthor, removeBooksByAuthor };

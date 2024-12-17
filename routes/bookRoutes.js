@@ -27,4 +27,6 @@ router.post("/:id", (req, res) => controller.update_vote(req, res));
 // DELETE
 router.delete("/:id", (req, res) => controller.delete_book(req, res));
 
+router.delete("/authors/:author", (req, res) => controller.delete_author(req, res));
+
 module.exports = router;

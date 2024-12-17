@@ -63,6 +63,13 @@ async function delete_book(req, res) {
     res.json({ redirect: "/" });
 }
 
+async function delete_author(req, res) {
+    const author = req.params.author.split("-").join(" ");
+
+    await db.removeBooksByAuthor(author);
+    res.json({ redirect: "/" });
+}
+
 module.exports = {
     get_index,
     get_details,
@@ -75,4 +82,5 @@ module.exports = {
     get_index_by_author,
     update_vote,
     delete_book,
+    delete_author,
 };

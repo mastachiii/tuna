@@ -34,7 +34,7 @@
         });
 
         deleteButton.addEventListener("click", () => {
-            fetch(`/books/${deleteButton.getAttribute("id")}?field=upvote`, {
+            fetch(`/books/${deleteButton.getAttribute("id")}`, {
                 method: "DELETE",
             })
                 .then(res => res.json())
