@@ -1,0 +1,38 @@
+<form action="/books" method="post">
+    <%- include('../partials/bookInput', {value: 'title', required: true}) %>
+    <!---->
+    <%- include('../partials/bookInput', {value: 'author', required: true}) %>
+    <fieldset>
+        <legend>Genre:</legend>
+        <%- include('../partials/genreOption',{genre: 'Fiction'}) %>
+        <!--stupid fucking formatter-->
+        <%- include('../partials/genreOption',{genre: 'Nonfiction'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Crime'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Romance'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Fantasy'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Action'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Adventure'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Mystery'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Horror'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Drama'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'History'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Philosophy'}) %>
+        <!---->
+        <%- include('../partials/genreOption',{genre: 'Science Fiction'}) %>
+    </fieldset>
+    <%- include('../partials/bookInput', {value: 'image', required: false}) %>
+    <!---->
+    <label for="review">Review: </label>
+    <textarea name="review" id="review"></textarea>
+    <button style="display: block">add!</button>
+</form>
