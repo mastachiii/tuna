@@ -7,7 +7,38 @@
         <h1><%= book.title %></h1>
         <p><em><%= book.author %></em></p>
         <p><%= book.votes %> votes</p>
-        <button>upvote</button>
+        <button id="<%= book.id %>" class="vote-btn">upvote</button>
         <p><%= book.review %></p>
+        <button id="<%= book.id %>" class="delete-btn">delete book</button>
     </body>
+    <script>
+        const voteButton = document.querySelector(".vote-btn");
+        const deleteButton = document.querySelector(".delete-btn");
+        const userHasVoted = localStorage.getItem("userHasVoted");
+        if (!userHasVoted) localStorage.setItem("userHasVoted", false);
+
+        voteButton.addEventListener("click", () => {
+            if (!JSON.parse(userHasVoted)) {
+                localStorage.setItem("userHasVoted", true);
+
+                fetch(`/books/${voteButton.getAttribute("id")}?field=upvote`, {
+                    method: "POST",
+                }).then(res => location.reload());
+            } else {
+                localStorage.setItem("userHasVoted", false);
+
+                fetch(`/books/${voteButton.getAttribute("id")}?field=downvote`, {
+                    method: "POST",
+                }).then(res => location.reload());
+            }
+        });
+
+        deleteButton.addEventListener("click", () => {
+            fetch(`/books/${deleteButton.getAttribute("id")}?field=upvote`, {
+                method: "DELETE",
+            })
+                .then(res => res.json())
+                .then(res => (window.location.href = res.redirect));
+        });
+    </script>
 </html>

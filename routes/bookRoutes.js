@@ -22,4 +22,9 @@ router.get("/authors/:author", (req, res) => controller.get_index_by_author(req,
 // POST
 router.post("/", (req, res) => controller.add_book(req, res));
 
+router.post("/:id", (req, res) => controller.update_vote(req, res));
+
+// DELETE
+router.delete("/:id", (req, res) => controller.delete_book(req, res));
+
 module.exports = router;

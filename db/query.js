@@ -68,8 +68,11 @@ function updateBook({ id, field, value }) {
         case "review":
             pool.query("UPDATE books SET review = $1 WHERE id = $2", [value, id]);
             break;
-        case "votes":
+        case "upvote":
             pool.query("UPDATE books SET votes = votes + 1 WHERE id = $1", [id]);
+            break;
+        case "downvote":
+            pool.query("UPDATE books SET votes = votes - 1 WHERE id = $1", [id]);
     }
 }
 

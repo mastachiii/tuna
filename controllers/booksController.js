@@ -9,8 +9,6 @@ async function get_index(req, res) {
 async function get_details(req, res) {
     const book = await db.getBook(req.params.id);
 
-    console.log(book);
-
     res.render("books/details", { book: book });
 }
 
@@ -51,4 +49,30 @@ async function add_book(req, res) {
     res.redirect("/");
 }
 
-module.exports = { get_index, get_details, get_form, get_search_results, get_authors, get_genres, add_book, get_index_by_genre, get_index_by_author };
+async function update_vote(req, res) {
+    const id = req.params.id;
+    const field = req.query.field;
+
+    await db.updateBook({ id, field });
+
+    res.send(true);
+}
+
+async function delete_book(req, res) {
+    await db.removeBook(req.params.id);
+    res.json({ redirect: "/" });
+}
+
+module.exports = {
+    get_index,
+    get_details,
+    get_form,
+    get_search_results,
+    get_authors,
+    get_genres,
+    add_book,
+    get_index_by_genre,
+    get_index_by_author,
+    update_vote,
+    delete_book,
+};
