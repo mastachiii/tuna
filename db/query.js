@@ -80,4 +80,34 @@ function updateBook({ id, field, value }) {
     }
 }
 
-module.exports = { getAllBooks, getBook, addBook, removeBook, updateBook, getAllAuthors, getBooksByGenre, getBooksByAuthor, removeBooksByAuthor };
+async function getBooksBySort(sortBy, order) {
+    const queries = {
+        votes: {
+            asc: pool.query("SELECT * FROM books ORDER BY votes ASC"),
+            desc: pool.query("SELECT * FROM books ORDER BY votes DESC"),
+        },
+        title: {
+            asc: pool.query("SELECT * FROM books ORDER BY title ASC"),
+            desc: pool.query("SELECT * FROM books ORDER BY title DESC"),
+        },
+    };
+
+    const { rows } = await queries[sortBy][order];
+
+    console.log(rows)
+
+    return rows;
+}
+
+module.exports = {
+    getAllBooks,
+    getBook,
+    addBook,
+    removeBook,
+    updateBook,
+    getAllAuthors,
+    getBooksByGenre,
+    getBooksByAuthor,
+    removeBooksByAuthor,
+    getBooksBySort,
+};

@@ -70,6 +70,14 @@ async function delete_author(req, res) {
     res.json({ redirect: "/" });
 }
 
+async function get_sorted(req, res) {
+    const { sortBy, order } = req.query;
+    console.log(req.query)
+    const books = await db.getBooksBySort(sortBy, order);
+
+    res.render("books/index", { books });
+}
+
 module.exports = {
     get_index,
     get_details,
@@ -83,4 +91,5 @@ module.exports = {
     update_vote,
     delete_book,
     delete_author,
+    get_sorted,
 };
