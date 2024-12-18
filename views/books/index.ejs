@@ -3,29 +3,13 @@
     <body>
         <%- include('../partials/navbar') %>
         <a href="books/add" style="display: block">add new book</a>
-        <form action="?sortBy=votes&order=asc">
-            <input type="hidden" name="sortBy" value="votes" />
-            <input type="hidden" name="order" value="asc" />
-            <button>votes-asc</button>
-        </form>
-        <form action="books/sort">
-            <input type="hidden" name="sortBy" value="votes" />
-            <input type="hidden" name="order" value="desc" />
-            <button>votes-desc</button>
-        </form>
-        <!--TITLE SORT-->
-        <form action="books/sort">
-            <input type="hidden" name="sortBy" value="title" />
-            <input type="hidden" name="order" value="asc" />
-            <button>title-asc</button>
-        </form>
-        <form action="books/sort">
-            <input type="hidden" name="sortBy" value="title" />
-            <input type="hidden" name="order" value="desc" />
-            <button>title-desc</button>
-        </form>
+        <!-- VOTES -->
+        <button><a href="/books/sort?sortBy=votes&order=asc">votes-asc </a></button>
+        <button><a href="/books/sort?sortBy=votes&order=desc">votes-desc </a></button>
+        <!-- TITLE -->
+        <button><a href="/books/sort?sortBy=title&order=asc">title-asc </a></button>
+        <button><a href="/books/sort?sortBy=title&order=desc">title-desc </a></button>
         <%- include('../partials/head', {title: 'Books'})%> <% books.forEach(book => { %>
-        <!--VOTES SORT-->
         <img src="<%= book.image %>" alt="" />
         <h4><a href="books/<%=book.id%>"><%= book.title %></a></h4>
         <p><em><%= book.author %></em></p>

@@ -72,7 +72,7 @@ async function delete_author(req, res) {
 
 async function get_sorted(req, res) {
     const { sortBy, order } = req.query;
-    console.log(req.query)
+    console.log(req.query);
     const books = await db.getBooksBySort(sortBy, order);
 
     res.render("books/index", { books });

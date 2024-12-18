@@ -13,9 +13,9 @@ router.get("/authors", (req, res) => controller.get_authors(req, res));
 
 router.get("/genres", (req, res) => controller.get_genres(req, res));
 
-router.get("/:id", (req, res) => controller.get_details(req, res));
+router.get("/sort", (req, res) => controller.get_sorted(req, res));
 
-router.post("/sort", (req, res) => controller.get_sorted(req, res));
+router.get("/:id", (req, res) => controller.get_details(req, res));
 
 router.get("/genres/:genre", (req, res) => controller.get_index_by_genre(req, res));
 
@@ -23,7 +23,6 @@ router.get("/authors/:author", (req, res) => controller.get_index_by_author(req,
 
 // POST
 router.post("/", (req, res) => controller.add_book(req, res));
-
 
 router.post("/:id", (req, res) => controller.update_vote(req, res));
 
