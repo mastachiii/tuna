@@ -1,4 +1,11 @@
 const db = require("../db/query");
+const { body, validationResult } = require("express-validator");
+
+const validateForm = [
+    body("title").notEmpty().withMessage("Title is required."),
+    body("author").notEmpty().withMessage("Author is required."),
+    body("genre").notEmpty().withMessage("Genre is required."),
+];
 
 async function get_index(req, res) {
     const books = await db.getAllBooks();
@@ -43,11 +50,19 @@ async function get_index_by_author(req, res) {
     res.render("books/index", { books });
 }
 
-async function add_book(req, res) {
-    await db.addBook(req.body);
+const add_book = [
+    validateForm,
+    async (req, res, next) => {
+        const errors = validationResult(req);
 
-    res.redirect("/");
-}
+        if (!errors.isEmpty()) {
+            return res.status(400).render("books/create", { errors: errors.array() });
+        }
+
+        await db.addBook(req.body);
+        res.redirect("/");
+    },
+];
 
 async function update_vote(req, res) {
     const id = req.params.id;
@@ -78,18 +93,26 @@ async function get_sorted(req, res) {
     res.render("books/index", { books });
 }
 
-async function update_book(req, res) {
-    const id = req.params.id;
-    const { title, author, genre, image, review } = req.body;
+const update_book = [
+    validateForm,
+    async (req, res) => {
+        const errors = validationResult(req);
+        const id = req.params.id;
+        const { title, author, genre, image, review } = req.body;
 
-    await db.updateBook({ id, field: "title", value: title });
-    await db.updateBook({ id, field: "author", value: author });
-    await db.updateBook({ id, field: "genre", value: genre });
-    await db.updateBook({ id, field: "image", value: image });
-    await db.updateBook({ id, field: "review", value: review });
+        if (!errors.isEmpty()) {
+            return res.status(400).render("error", { title: "Error", errors: errors.array() });
+        }
 
-    res.redirect(`/books/${id}`);
-}
+        await db.updateBook({ id, field: "title", value: title });
+        await db.updateBook({ id, field: "author", value: author });
+        await db.updateBook({ id, field: "genre", value: genre });
+        await db.updateBook({ id, field: "image", value: image });
+        await db.updateBook({ id, field: "review", value: review });
+
+        res.redirect(`/books/${id}`);
+    },
+];
 
 module.exports = {
     get_index,
@@ -98,7 +121,6 @@ module.exports = {
     get_search_results,
     get_authors,
     get_genres,
-    add_book,
     get_index_by_genre,
     get_index_by_author,
     update_vote,
@@ -106,4 +128,5 @@ module.exports = {
     delete_author,
     get_sorted,
     update_book,
+    add_book,
 };

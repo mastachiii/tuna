@@ -22,9 +22,9 @@ router.get("/genres/:genre", (req, res) => controller.get_index_by_genre(req, re
 router.get("/authors/:author", (req, res) => controller.get_index_by_author(req, res));
 
 // POST
-router.post("/", (req, res) => controller.add_book(req, res));
+router.post("/", controller.add_book);
 
-router.post("/update/:id", (req, res) => controller.update_book(req, res));
+router.post("/update/:id", controller.update_book);
 
 router.post("/:id", (req, res) => controller.update_vote(req, res));
 

@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('../partials/head', {title: 'Add a New Book'}) %>
+
     <body>
-        <form action="/books/update/<%= book.id %>" method="post">
+        <%- include('../partials/navbar') %>
+        <!--    -->
+        <% if (locals.errors) {%>
+        <ul>
+            <% errors.forEach(function(error) { %>
+            <li><%= error.msg %></li>
+            <% }); %>
+        </ul>
+        <% } %>
+        <form action="/books" method="post">
             <%- include('../partials/bookInput', {label: 'title', required: true, value: ''}) %>
             <!---->
             <%- include('../partials/bookInput', {label: 'author', required: true, value: ''}) %>
