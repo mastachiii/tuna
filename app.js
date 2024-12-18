@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const booksRouter = require("./routes/bookRoutes");
+const { title } = require("process");
 
 const app = express();
 
@@ -10,6 +11,9 @@ app.set("view engine", "ejs");
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use("/books", booksRouter);
+app.use((err, req, res, next) => {
+    res.render("error", { title: "Error" });
+});
 
 // Get reqs
 app.get("/", (req, res) => {
