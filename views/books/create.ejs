@@ -3,9 +3,9 @@
     <%- include('../partials/head', {title: 'Add a New Book'}) %>
     <body>
         <form action="/books" method="post">
-            <%- include('../partials/bookInput', {value: 'title', required: true, value: ''}) %>
+            <%- include('../partials/bookInput', {label: 'title', required: true, value: ''}) %>
             <!---->
-            <%- include('../partials/bookInput', {value: 'author', required: true, value: ''}) %>
+            <%- include('../partials/bookInput', {label: 'author', required: true, value: ''}) %>
             <fieldset>
                 <legend>Genre:</legend>
                 <%- include('../partials/genreOption',{genre: 'Fiction'}) %>
@@ -34,7 +34,7 @@
                 <!---->
                 <%- include('../partials/genreOption',{genre: 'Science Fiction'}) %>
             </fieldset>
-            <%- include('../partials/bookInput', {value: 'image', required: false, value: ''}) %>
+            <%- include('../partials/bookInput', {label: 'image', required: false, value: ''}) %>
             <!---->
             <label for="review">Review: </label>
             <textarea name="review" id="review"></textarea>

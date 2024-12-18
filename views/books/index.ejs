@@ -11,7 +11,7 @@
         <button><a href="/books/sort?sortBy=title&order=desc">title-desc </a></button>
         <%- include('../partials/head', {title: 'Books'})%> <% books.forEach(book => { %>
         <img src="<%= book.image %>" alt="" />
-        <h4><a href="books/<%=book.id%>"><%= book.title %></a></h4>
+        <h4><a href="/books/<%=book.id%>"><%= book.title %></a></h4>
         <p><em><%= book.author %></em></p>
         <p><em><%= book.votes %> votes</em></p>
         <% }) %>

@@ -9,11 +9,14 @@
         <p><%= book.votes %> votes</p>
         <button id="<%= book.id %>" class="vote-btn">upvote</button>
         <p><%= book.review %></p>
+        <button id="<%= book.id %>" class="update-btn">update book</button>
         <button id="<%= book.id %>" class="delete-btn">delete book</button>
     </body>
+    <%- include('./update') %>
     <script>
         const voteButton = document.querySelector(".vote-btn");
         const deleteButton = document.querySelector(".delete-btn");
+        const updateButton = document.querySelector(".update-btn");
         const userHasVoted = localStorage.getItem("userHasVoted");
         if (!userHasVoted) localStorage.setItem("userHasVoted", false);
 
@@ -39,6 +42,11 @@
             })
                 .then(res => res.json())
                 .then(res => (window.location.href = res.redirect));
+        });
+
+        updateButton.addEventListener("click", () => {
+            const updateForm = document.querySelector("dialog");
+            updateForm.showModal();
         });
     </script>
 </html>

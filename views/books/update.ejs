@@ -1,5 +1,42 @@
 <dialog>
-    <form action="books/update/<%= book.id %>">
-        <input type="text" />
+    <button class="close-dialog">close</button>
+    <form action="/books/update/<%= book.id %>">
+        <%- include('../partials/bookInput', {label: 'title', required: true, value: book.title}) %>
+        <!---->
+        <%- include('../partials/bookInput', {label: 'author', required: true, value: book.author}) %>
+        <!---->
+        <fieldset>
+            <legend>Genre:</legend>
+            <%- include('../partials/genreOption',{genre: 'Fiction'}) %>
+            <!--stupid fucking formatter-->
+            <%- include('../partials/genreOption',{genre: 'Nonfiction'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Crime'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Romance'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Fantasy'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Action'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Adventure'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Mystery'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Horror'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Drama'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'History'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Philosophy'}) %>
+            <!---->
+            <%- include('../partials/genreOption',{genre: 'Science Fiction'}) %>
+        </fieldset>
+        <%- include('../partials/bookInput', {label: 'image', required: true, value: book.image}) %>
+        <!---->
+        <label for="review">Review: </label>
+        <textarea name="review" id="review"><%= book.review %></textarea>
+        <button style="display: block">add!</button>
     </form>
 </dialog>
