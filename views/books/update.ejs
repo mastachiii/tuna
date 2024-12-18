@@ -1,6 +1,6 @@
 <dialog>
     <button class="close-dialog">close</button>
-    <form action="/books/update/<%= book.id %>">
+    <form action="/books/update/<%= book.id %>" method="post">
         <%- include('../partials/bookInput', {label: 'title', required: true, value: book.title}) %>
         <!---->
         <%- include('../partials/bookInput', {label: 'author', required: true, value: book.author}) %>

@@ -6,6 +6,7 @@
         <img src="<%= book.image %>" alt="book cover" />
         <h1><%= book.title %></h1>
         <p><em><%= book.author %></em></p>
+        <p>Genres: <%= book.genre ? book.genre.join(', ') : '' %></p>
         <p><%= book.votes %> votes</p>
         <button id="<%= book.id %>" class="vote-btn">upvote</button>
         <p><%= book.review %></p>
@@ -46,7 +47,11 @@
 
         updateButton.addEventListener("click", () => {
             const updateForm = document.querySelector("dialog");
+            const closeFormButton = document.querySelector(".close-dialog");
+
             updateForm.showModal();
+
+            closeFormButton.addEventListener("click", () => updateForm.close());
         });
     </script>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
     <%- include('../partials/head', {title: 'Add a New Book'}) %>
     <body>
-        <form action="/books" method="post">
+        <form action="/books/update/<%= book.id %>" method="post">
             <%- include('../partials/bookInput', {label: 'title', required: true, value: ''}) %>
             <!---->
             <%- include('../partials/bookInput', {label: 'author', required: true, value: ''}) %>

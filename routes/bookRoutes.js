@@ -24,6 +24,8 @@ router.get("/authors/:author", (req, res) => controller.get_index_by_author(req,
 // POST
 router.post("/", (req, res) => controller.add_book(req, res));
 
+router.post("/update/:id", (req, res) => controller.update_book(req, res));
+
 router.post("/:id", (req, res) => controller.update_vote(req, res));
 
 // DELETE

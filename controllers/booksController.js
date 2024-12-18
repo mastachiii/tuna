@@ -78,6 +78,19 @@ async function get_sorted(req, res) {
     res.render("books/index", { books });
 }
 
+async function update_book(req, res) {
+    const id = req.params.id;
+    const { title, author, genre, image, review } = req.body;
+
+    await db.updateBook({ id, field: "title", value: title });
+    await db.updateBook({ id, field: "author", value: author });
+    await db.updateBook({ id, field: "genre", value: genre });
+    await db.updateBook({ id, field: "image", value: image });
+    await db.updateBook({ id, field: "review", value: review });
+
+    res.redirect(`/books/${id}`);
+}
+
 module.exports = {
     get_index,
     get_details,
@@ -92,4 +105,5 @@ module.exports = {
     delete_book,
     delete_author,
     get_sorted,
+    update_book,
 };

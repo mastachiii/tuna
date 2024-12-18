@@ -94,7 +94,7 @@ async function getBooksBySort(sortBy, order) {
 
     const { rows } = await queries[sortBy][order];
 
-    console.log(rows)
+    console.log(rows);
 
     return rows;
 }
