@@ -32,6 +32,15 @@ async function getBooksByAuthor(author) {
     return rows;
 }
 
+async function getBooksByTitle(title) {
+    const search = `%${title}%`;
+    const { rows } = await pool.query("SELECT * FROM books WHERE title ILIKE $1", [search]);
+
+    return rows;
+}
+
+getBooksByTitle("crime");
+
 function addBook({ title, author, genre, image, review }) {
     pool.query(
         `INSERT INTO books (title, author, genre, image, review, votes)
