@@ -7,8 +7,6 @@ router.get("/", (req, res) => controller.get_index(req, res));
 
 router.get("/add", (req, res) => controller.get_form(req, res));
 
-router.get("/search", (req, res) => controller.get_search_results(req, res));
-
 router.get("/authors", (req, res) => controller.get_authors(req, res));
 
 router.get("/genres", (req, res) => controller.get_genres(req, res));
@@ -24,9 +22,12 @@ router.get("/authors/:author", (req, res) => controller.get_index_by_author(req,
 // POST
 router.post("/", controller.add_book);
 
+router.post("/search", (req, res) => controller.get_index_by_search(req, res));
+
 router.post("/update/:id", controller.update_book);
 
 router.post("/:id", (req, res) => controller.update_vote(req, res));
+
 
 // DELETE
 router.delete("/:id", (req, res) => controller.delete_book(req, res));

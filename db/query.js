@@ -119,4 +119,5 @@ module.exports = {
     getBooksByAuthor,
     removeBooksByAuthor,
     getBooksBySort,
+    getBooksByTitle,
 };

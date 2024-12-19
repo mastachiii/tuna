@@ -50,6 +50,12 @@ async function get_index_by_author(req, res) {
     res.render("books/index", { books });
 }
 
+async function get_index_by_search(req, res) {
+    const books = await db.getBooksByTitle(req.body.search);
+
+    res.render("books/index", { books });
+}
+
 const add_book = [
     validateForm,
     async (req, res, next) => {
@@ -87,7 +93,6 @@ async function delete_author(req, res) {
 
 async function get_sorted(req, res) {
     const { sortBy, order } = req.query;
-    console.log(req.query);
     const books = await db.getBooksBySort(sortBy, order);
 
     res.render("books/index", { books });
@@ -129,4 +134,5 @@ module.exports = {
     get_sorted,
     update_book,
     add_book,
+    get_index_by_search,
 };
