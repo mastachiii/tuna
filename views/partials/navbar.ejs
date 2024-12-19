@@ -1,8 +1,20 @@
-<nav style="display: flex; justify-content: space-between; background-color: rebeccapurple">
-    <p>tuna</p>
-    <a href="/">home</a>
-    <a href="/books">books</a>
-    <a href="/books/authors">authors</a>
-    <a href="/books/genres">genres</a>
-    <input type="text" placeholder="search.." />
-</nav>
+<html>
+    <%- include('../partials/head', {title: '', cssPath: '/css/navBar.css'}) %>
+    <nav>
+        <div>
+            <img src="/icons/book.svg" alt="" />
+            <p>Tuna</p>
+        </div>
+        <a href="/">HOME</a>
+        <a href="/books">BOOKS</a>
+        <a href="/books/authors">AUTHORS</a>
+        <a href="/books/genres">GENRES</a>
+        <div class="search-bar">
+            <form action="/search">
+                <input type="text" placeholder="Find a book" />
+                <input type="submit" hidden />
+            </form>
+            <img src="/icons/search.svg" alt="" />
+        </div>
+    </nav>
+</html>

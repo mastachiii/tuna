@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <%- include('../partials/head', {title: 'Books', cssPath: '/css/list.css'})%>
     <body>
         <%- include('../partials/navbar') %>
         <a href="/books/add" style="display: block">add new book</a>
@@ -9,7 +10,7 @@
         <!-- TITLE -->
         <button><a href="/books/sort?sortBy=title&order=asc">title-asc </a></button>
         <button><a href="/books/sort?sortBy=title&order=desc">title-desc </a></button>
-        <%- include('../partials/head', {title: 'Books'})%> <% books.forEach(book => { %>
+        <% books.forEach(book => { %>
         <img src="<%= book.image %>" alt="" />
         <h4><a href="/books/<%=book.id%>"><%= book.title %></a></h4>
         <p><em><%= book.author %></em></p>
