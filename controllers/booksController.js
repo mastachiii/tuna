@@ -44,10 +44,11 @@ async function get_index_by_genre(req, res) {
 }
 
 async function get_index_by_author(req, res) {
-    const author = req.params.author.split("-").join(" ");
+    const author = req.params.author.split("_").join(" ");
+    console.log(author)
     const books = await db.getBooksByAuthor(author);
 
-    res.render("books/index", { books });
+    res.render("books/authorsIndex", { books, author: books[0].author });
 }
 
 async function get_index_by_search(req, res) {

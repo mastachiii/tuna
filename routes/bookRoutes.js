@@ -28,7 +28,6 @@ router.post("/update/:id", controller.update_book);
 
 router.post("/:id", (req, res) => controller.update_vote(req, res));
 
-
 // DELETE
 router.delete("/:id", (req, res) => controller.delete_book(req, res));
 

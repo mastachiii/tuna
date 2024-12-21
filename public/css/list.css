@@ -99,7 +99,7 @@ a {
 
     div {
         .book-wrapper {
-            height: fit-content;
+            height: 15.1rem;
             border: solid 2px transparent;
             border-radius: 5px;
         }

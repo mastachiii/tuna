@@ -8,7 +8,7 @@
             <h1>Authors</h1>
             <% authors.forEach(a =>{%>
             <div>
-                <a href="authors/<%= a.author.toLowerCase().split(' ').join('-') %>"><%= a.author %></a>
+                <a href="authors/<%= a.author.toLowerCase().trim().split(' ').join('_') %>"><%= a.author %></a>
                 <button id="authors/<%= a.author.toLowerCase().split(' ').join('-') %>" class="delete-btn">DELETE</button>
             </div>
             <%}) %>

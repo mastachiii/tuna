@@ -32,6 +32,8 @@ async function getBooksByAuthor(author) {
     return rows;
 }
 
+getBooksByAuthor("antoine de saint-exupéry");
+
 async function getBooksByTitle(title) {
     const search = `%${title}%`;
     const { rows } = await pool.query("SELECT * FROM books WHERE title ILIKE $1", [search]);
