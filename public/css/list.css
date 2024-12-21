@@ -9,6 +9,11 @@ html {
 
 main {
     display: flex;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
 }
 
 .side-bar {
@@ -85,25 +90,30 @@ main {
 }
 
 .book-container {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
     font-family: Helvetica, sans-serif;
 
-    a {
-        color: #ffffff;
-        text-decoration: none;
-    }
+    div {
+        img {
+            width: 10rem;
+            height: 15rem;
+        }
 
-    img {
-        width: 30%;
-    }
+        h4 {
+            width: 100%;
+            margin: 8px 0 0 0;
+            font-size: 12px;
+            color: #ffffff;
+            text-decoration: none;
+            text-overflow: ellipsis;
+        }
 
-    h4 {
-        width: 30%;
-        font-size: 12px;
-        text-overflow: ellipsis;
-    }
-
-    p {
-        font-size: 10px;
-        color: #64748b;
+        p {
+            font-size: 10px;
+            color: #64748b;
+        }
     }
 }

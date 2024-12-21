@@ -33,9 +33,13 @@
             </div>
             <div class="book-container">
                 <% books.forEach(book => { %>
-                <img src="<%= book.image %>" alt="" />
-                <h4><a href="/books/<%=book.id%>"><%= book.title %></a></h4>
-                <p><em><%= book.author %></em></p>
+                <a href="/books/<%= book.id %>">
+                    <div>
+                        <img src="<%= book.image %>" alt="" />
+                        <h4><%= book.title %></h4>
+                        <p><em><%= book.author %></em></p>
+                    </div>
+                </a>
                 <% }) %>
             </div>
         </main>
