@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use("/books", booksRouter);
 app.use((err, req, res, next) => {
+    console.error(err)
     res.render("error", { title: "Error" });
 });
 

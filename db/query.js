@@ -13,7 +13,7 @@ async function getBook(id) {
 }
 
 async function getAllAuthors() {
-    const { rows } = await pool.query("SELECT author FROM books GROUP BY author");
+    const { rows } = await pool.query("SELECT author FROM books GROUP BY author ORDER BY author ASC");
 
     return rows;
 }

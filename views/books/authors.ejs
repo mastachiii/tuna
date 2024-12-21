@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {title: 'Authors'}) %>
+    <%- include('../partials/head', {title: 'Authors', cssPath: '/css/authors.css'}) %>
     <body>
         <%- include('../partials/navbar') %>
         <!---->
-        <% authors.forEach(a =>{%>
-        <a href="authors/<%= a.author.toLowerCase().split(' ').join('-') %>"><%= a.author %></a>
-        <button id="authors/<%= a.author.toLowerCase().split(' ').join('-') %>" class="delete-btn">delete</button>
-        <%}) %>
+        <div class="authors-container">
+            <h1>Authors</h1>
+            <% authors.forEach(a =>{%>
+            <div>
+                <a href="authors/<%= a.author.toLowerCase().split(' ').join('-') %>"><%= a.author %></a>
+                <button id="authors/<%= a.author.toLowerCase().split(' ').join('-') %>" class="delete-btn">DELETE</button>
+            </div>
+            <%}) %>
+        </div>
     </body>
     <script>
         const deleteButton = document.querySelector(".delete-btn");

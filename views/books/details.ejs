@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {title: book.title}) %>
+    <%- include('../partials/head', {title: book.title, cssPath: '/css/details.css'}) %>
     <body>
         <%- include('../partials/navbar') %>
         <!---->
@@ -24,12 +24,14 @@
 
         voteButton.addEventListener("click", () => {
             if (!JSON.parse(userHasVoted)) {
+                voteButton.textContent = "not voted";
                 localStorage.setItem("userHasVoted", true);
 
                 fetch(`/books/${voteButton.getAttribute("id")}?field=upvote`, {
                     method: "POST",
                 }).then(res => location.reload());
             } else {
+                voteButton.textContent = "voted";
                 localStorage.setItem("userHasVoted", false);
 
                 fetch(`/books/${voteButton.getAttribute("id")}?field=downvote`, {
