@@ -3,18 +3,42 @@
     <%- include('../partials/head', {title: 'Books', cssPath: '/css/list.css'})%>
     <body>
         <%- include('../partials/navbar') %>
-        <a href="/books/add" style="display: block">add new book</a>
-        <!-- VOTES -->
-        <button><a href="/books/sort?sortBy=votes&order=asc">votes-asc </a></button>
-        <button><a href="/books/sort?sortBy=votes&order=desc">votes-desc </a></button>
-        <!-- TITLE -->
-        <button><a href="/books/sort?sortBy=title&order=asc">title-asc </a></button>
-        <button><a href="/books/sort?sortBy=title&order=desc">title-desc </a></button>
-        <% books.forEach(book => { %>
-        <img src="<%= book.image %>" alt="" />
-        <h4><a href="/books/<%=book.id%>"><%= book.title %></a></h4>
-        <p><em><%= book.author %></em></p>
-        <p><em><%= book.votes %> votes</em></p>
-        <% }) %>
+        <main>
+            <div class="side-bar">
+                <!-- VOTES -->
+                <p>SORT BY VOTES:</p>
+                <div>
+                    <span>
+                        <a href="/books/sort?sortBy=votes&order=asc"><button type="radio"></button></a>
+                        <p>Ascending</p>
+                    </span>
+                    <span>
+                        <a href="/books/sort?sortBy=votes&order=desc"><button></button></a>
+                        <p>Descending</p>
+                    </span>
+                </div>
+                <!-- TITLE -->
+                <p>SORT BY TITLE:</p>
+                <div>
+                    <span>
+                        <a href="/books/sort?sortBy=title&order=asc"><button></button></a>
+                        <p>Ascending</p>
+                    </span>
+                    <span>
+                        <a href="/books/sort?sortBy=title&order=desc"><button></button></a>
+                        <p>Descending</p>
+                    </span>
+                </div>
+                <a href="/books/add" style="display: block">Add a new book</a>
+            </div>
+            <div>
+                <% books.forEach(book => { %>
+                <img src="<%= book.image %>" alt="" />
+                <h4><a href="/books/<%=book.id%>"><%= book.title %></a></h4>
+                <p><em><%= book.author %></em></p>
+                <p><em><%= book.votes %> votes</em></p>
+                <% }) %>
+            </div>
+        </main>
     </body>
 </html>
