@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {title: 'Add a New Book'}) %>
+    <%- include('../partials/head', {title: 'Add a New Book', cssPath: '/css/create.css'}) %>
 
     <body>
         <%- include('../partials/navbar') %>
         <!--    -->
-        <% if (locals.errors) {%>
-        <ul>
-            <% errors.forEach(function(error) { %>
-            <li><%= error.msg %></li>
-            <% }); %>
-        </ul>
-        <% } %>
-        <form action="/books" method="post">
-            <%- include('../partials/bookInput', {label: 'title', required: true, value: ''}) %>
+        <form action="/books" method="post" class="book-form">
+            <h1>Add a new book</h1>
+            <p>Title, Author, and Genre are required.</p>
+            <% if (locals.errors) {%>
+            <ul>
+                <% errors.forEach(function(error) { %>
+                <li>❌ <%= error.msg %></li>
+                <% }); %>
+            </ul>
+            <% } %> <%- include('../partials/bookInput', {label: 'title', required: true, value: ''}) %>
             <!---->
             <%- include('../partials/bookInput', {label: 'author', required: true, value: ''}) %>
             <fieldset>
-                <legend>Genre:</legend>
+                <legend>Genre</legend>
                 <%- include('../partials/genreOption',{genre: 'Fiction'}) %>
                 <!--stupid fucking formatter-->
                 <%- include('../partials/genreOption',{genre: 'Nonfiction'}) %>
@@ -46,9 +47,9 @@
             </fieldset>
             <%- include('../partials/bookInput', {label: 'image', required: false, value: ''}) %>
             <!---->
-            <label for="review">Review: </label>
+            <label for="review">Review </label>
             <textarea name="review" id="review"></textarea>
-            <button style="display: block">add!</button>
+            <button style="display: block">ADD</button>
         </form>
     </body>
 </html>

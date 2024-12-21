@@ -2,9 +2,9 @@ const db = require("../db/query");
 const { body, validationResult } = require("express-validator");
 
 const validateForm = [
-    body("title").notEmpty().withMessage("Title is required."),
-    body("author").notEmpty().withMessage("Author is required."),
-    body("genre").notEmpty().withMessage("Genre is required."),
+    body("title").notEmpty().withMessage("Title is missing."),
+    body("author").notEmpty().withMessage("Author is missing."),
+    body("genre").notEmpty().withMessage("Genre is missing."),
 ];
 
 async function get_index(req, res) {
@@ -61,12 +61,15 @@ const add_book = [
     async (req, res, next) => {
         const errors = validationResult(req);
 
+        // Add default image if not filled out
+        if (!req.body.image) req.body.image = "https://cdn.vectorstock.com/i/500p/26/79/book-logo-icon-design-template-vector-30212679.jpg";
+
         if (!errors.isEmpty()) {
             return res.status(400).render("books/create", { errors: errors.array() });
         }
 
         await db.addBook(req.body);
-        res.redirect("/");
+        res.redirect("/books");
     },
 ];
 

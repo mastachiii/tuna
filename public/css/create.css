@@ -1,0 +1,82 @@
+html {
+    background-color: #1e293b;
+}
+
+.book-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto 5rem auto;
+    font-family: sans-serif;
+
+    h1 {
+        color: #ffffff;
+        font-style: italic;
+    }
+
+    p {
+        font-size: 12px;
+        color: #64748b;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        font-weight: 600;
+        color: #64748b;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 90%;
+        padding: 5px;
+        border: solid 2px transparent;
+        border-radius: 5px;
+    }
+
+    textarea {
+        padding-bottom: 7rem;
+    }
+
+    fieldset {
+        width: 47%;
+        margin: 10px 0 0 0;
+        border-color: #64748b;
+
+        legend {
+            color: #ffffff;
+        }
+
+        input {
+            width: 10px;
+            border: none;
+        }
+
+        label {
+            font-size: 13px;
+        }
+    }
+
+    label {
+        align-self: flex-start;
+        margin: 10px 0 3px 0;
+        color: #ffffff;
+    }
+
+    button {
+        width: 12%;
+        align-self: center;
+        padding: 10px 8px;
+        margin: 1rem 0 0 0;
+        border: none;
+        font-weight: bold;
+        background-color: #65a30d;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #4d7c0f;
+    }
+}
