@@ -53,7 +53,7 @@ async function get_index_by_author(req, res) {
 async function get_index_by_search(req, res) {
     const books = await db.getBooksByTitle(req.body.search);
 
-    res.render("books/index", { books });
+    res.render("books/search", { books, search: req.body.search });
 }
 
 const add_book = [
