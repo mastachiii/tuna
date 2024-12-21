@@ -83,3 +83,27 @@ main {
         background-color: #4d7c0f;
     }
 }
+
+.book-container {
+    font-family: Helvetica, sans-serif;
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    img {
+        width: 30%;
+    }
+
+    h4 {
+        width: 30%;
+        font-size: 12px;
+        text-overflow: ellipsis;
+    }
+
+    p {
+        font-size: 10px;
+        color: #64748b;
+    }
+}

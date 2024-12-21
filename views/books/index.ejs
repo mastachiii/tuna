@@ -31,12 +31,11 @@
                 </div>
                 <a href="/books/add" style="display: block">Add a new book</a>
             </div>
-            <div>
+            <div class="book-container">
                 <% books.forEach(book => { %>
                 <img src="<%= book.image %>" alt="" />
                 <h4><a href="/books/<%=book.id%>"><%= book.title %></a></h4>
                 <p><em><%= book.author %></em></p>
-                <p><em><%= book.votes %> votes</em></p>
                 <% }) %>
             </div>
         </main>
