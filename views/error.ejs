@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head', {cssPath:''}) %>
+    <%- include('./partials/head', {title: 'Error', cssPath:'/css/error.css'}) %>
     <body>
         <%- include('./partials/navbar') %>
-        <h1>ERROR!</h1>
-        <% if (locals.errors) {%>
-        <ul>
-            <% errors.forEach(function(error) { %>
-            <li><%= error.msg %></li>
-            <% }); %>
-        </ul>
+        <div class="error-container">
+            <img src="/icons/error.svg" alt="sad face" />
+            <h1>Ran into an error....</h1>
+            <p><%= message %></p>
+            <% if (locals.errors) {%>
+            <ul>
+                <% errors.forEach(function(error) { %>
+                <li><%= error.msg %></li>
+                <% }); %>
+            </ul>
+        </div>
         <% } %>
     </body>
 </html>
