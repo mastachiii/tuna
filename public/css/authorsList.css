@@ -18,7 +18,7 @@ a {
 }
 
 .book-container {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;

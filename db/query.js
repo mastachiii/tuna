@@ -32,16 +32,12 @@ async function getBooksByAuthor(author) {
     return rows;
 }
 
-getBooksByAuthor("antoine de saint-exupéry");
-
 async function getBooksByTitle(title) {
     const search = `%${title}%`;
     const { rows } = await pool.query("SELECT * FROM books WHERE title ILIKE $1", [search]);
 
     return rows;
 }
-
-getBooksByTitle("crime");
 
 function addBook({ title, author, genre, image, review }) {
     pool.query(
@@ -104,8 +100,6 @@ async function getBooksBySort(sortBy, order) {
     };
 
     const { rows } = await queries[sortBy][order];
-
-    console.log(rows);
 
     return rows;
 }

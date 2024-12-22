@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: genre, cssPath: '/css/authorsList.css'}) %>
+    <body>
+        <%- include('../partials/navbar') %>
+        <div class="list-container">
+            <h1><%= genre %> books</h1>
+            <div class="book-container">
+                <% books.forEach(book => { %>
+                <a href="/books/<%= book.id %>">
+                    <div>
+                        <div class="book-wrapper"><img src="<%= book.image %>" alt="" /></div>
+                        <h4><%= book.title %></h4>
+                        <p><em><%= book.author %></em></p>
+                    </div>
+                </a>
+                <% }) %>
+            </div>
+        </div>
+    </body>
+</html>

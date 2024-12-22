@@ -39,13 +39,13 @@ function get_genres(req, res) {
 
 async function get_index_by_genre(req, res) {
     const books = await db.getBooksByGenre(req.params.genre);
+    const genre = `${req.params.genre[0].toUpperCase()}${req.params.genre.slice(1)}`;
 
-    res.render("books/index", { books });
+    res.render("books/genresIndex", { books, genre });
 }
 
 async function get_index_by_author(req, res) {
     const author = req.params.author.split("_").join(" ");
-    console.log(author)
     const books = await db.getBooksByAuthor(author);
 
     res.render("books/authorsIndex", { books, author: books[0].author });
