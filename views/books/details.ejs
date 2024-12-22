@@ -17,12 +17,14 @@
                 <p>Review by <em><%= book.username %></em></p>
             </div>
             <div>
-                <p><%= book.votes %> votes</p>
+                <p><%= book.votes %></p>
                 <button id="<%= book.id %>" class="vote-btn"><img class="image-btn" /></button>
             </div>
         </div>
-        <button id="<%= book.id %>" class="update-btn">update book</button>
-        <button id="<%= book.id %>" class="delete-btn">delete book</button>
+        <div class="edit-container">
+            <button id="<%= book.id %>" class="update-btn">UPDATE</button>
+            <button id="<%= book.id %>" class="delete-btn">DELETE</button>
+        </div>
     </body>
     <%- include('./update') %>
     <script>
