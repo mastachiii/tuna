@@ -4,35 +4,55 @@
     <body>
         <%- include('../partials/navbar') %>
         <!---->
-        <img src="<%= book.image %>" alt="book cover" />
-        <h1><%= book.title %></h1>
-        <p><em><%= book.author %></em></p>
-        <p>Genres: <%= book.genre ? book.genre.join(', ') : '' %></p>
-        <p><%= book.votes %> votes</p>
-        <button id="<%= book.id %>" class="vote-btn">upvote</button>
-        <p><%= book.review %></p>
+        <% console.log(book) %>
+        <div class="details-container">
+            <img src="<%= book.image %>" alt="book cover" />
+            <div>
+                <span>
+                    <h1><%= book.title %></h1>
+                    <p>by <em><%= book.author %></em></p>
+                </span>
+                <p><%= book.genre ? book.genre.join(', ') : '' %></p>
+                <p><%= book.review %></p>
+                <p>Review by <em><%= book.username %></em></p>
+            </div>
+            <div>
+                <p><%= book.votes %> votes</p>
+                <button id="<%= book.id %>" class="vote-btn"><img class="image-btn" /></button>
+            </div>
+        </div>
         <button id="<%= book.id %>" class="update-btn">update book</button>
         <button id="<%= book.id %>" class="delete-btn">delete book</button>
     </body>
     <%- include('./update') %>
     <script>
         const voteButton = document.querySelector(".vote-btn");
+        const buttonImage = document.querySelector(".image-btn");
         const deleteButton = document.querySelector(".delete-btn");
         const updateButton = document.querySelector(".update-btn");
-        const userHasVoted = localStorage.getItem("userHasVoted");
-        if (!userHasVoted) localStorage.setItem("userHasVoted", false);
+        // need to have a unique id so that all books have their own voting state.
+        const userHasVoted = localStorage.getItem(`userHasVoted-${voteButton.getAttribute("id")}`);
+
+        if (!JSON.parse(userHasVoted)) {
+            localStorage.setItem(`userHasVoted-${voteButton.getAttribute("id")}`, false);
+            buttonImage.src = "/icons/heart0.svg";
+        } else {
+            buttonImage.src = "/icons/heart1.svg";
+        }
+
+        console.log(localStorage);
 
         voteButton.addEventListener("click", () => {
             if (!JSON.parse(userHasVoted)) {
                 voteButton.textContent = "not voted";
-                localStorage.setItem("userHasVoted", true);
+                localStorage.setItem(`userHasVoted-${voteButton.getAttribute("id")}`, true);
 
                 fetch(`/books/${voteButton.getAttribute("id")}?field=upvote`, {
                     method: "POST",
                 }).then(res => location.reload());
             } else {
                 voteButton.textContent = "voted";
-                localStorage.setItem("userHasVoted", false);
+                localStorage.setItem(`userHasVoted-${voteButton.getAttribute("id")}`, false);
 
                 fetch(`/books/${voteButton.getAttribute("id")}?field=downvote`, {
                     method: "POST",
