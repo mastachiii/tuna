@@ -17,13 +17,13 @@ A book recommendation list that everyone can contribute to.
 
 ### Desktop
 
-![Main](/previewImages/main.png)
+![Main](/screenshots/main.png)
 
-![Details](/previewImages/details.png)
+![Details](/screenshots/details.png)
 
 ### Mobile
 
-![Main](/previewImages/mainMobile.png)
+![Main](/screenshots/mainMobile.png)
 
-![Details](/previewImages/detailsMobile.png)
+![Details](/screenshots/detailsMobile.png)
 
