@@ -79,6 +79,9 @@ function updateBook({ id, field, value }) {
         case "review":
             pool.query("UPDATE books SET review = $1 WHERE id = $2", [value, id]);
             break;
+        case "username":
+            pool.query("UPDATE books SET username = $1 WHERE id = $2", [value, id]);
+            break;
         case "upvote":
             pool.query("UPDATE books SET votes = votes + 1 WHERE id = $1", [id]);
             break;

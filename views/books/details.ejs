@@ -46,14 +46,14 @@
 
         voteButton.addEventListener("click", () => {
             if (!JSON.parse(userHasVoted)) {
-                voteButton.textContent = "not voted";
+                buttonImage.src = "/icons/heart1.svg";
                 localStorage.setItem(`userHasVoted-${voteButton.getAttribute("id")}`, true);
 
                 fetch(`/books/${voteButton.getAttribute("id")}?field=upvote`, {
                     method: "POST",
                 }).then(res => location.reload());
             } else {
-                voteButton.textContent = "voted";
+                buttonImage.src = "/icons/heart0.svg";
                 localStorage.setItem(`userHasVoted-${voteButton.getAttribute("id")}`, false);
 
                 fetch(`/books/${voteButton.getAttribute("id")}?field=downvote`, {

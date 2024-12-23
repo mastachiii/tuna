@@ -1,6 +1,7 @@
 <dialog>
     <button class="close-dialog">BACK</button>
     <form action="/books/update/<%= book.id %>" method="post">
+        <p>Title, Author, and Genre are required.</p>
         <%- include('../partials/bookInput', {label: 'title', required: true, value: book.title}) %>
         <!---->
         <%- include('../partials/bookInput', {label: 'author', required: true, value: book.author}) %>
@@ -35,7 +36,7 @@
         </fieldset>
         <%- include('../partials/bookInput', {label: 'image', required: true, value: book.image}) %>
         <!---->
-        <%- include('../partials/bookInput', {label: 'username', required: true, value: book.username}) %>
+        <%- include('../partials/bookInput', {label: 'username', required: false, value: book.username}) %>
         <label for="review">Review: </label>
         <textarea name="review" id="review"><%= book.review %></textarea>
         <button style="display: block">UPDATE</button>

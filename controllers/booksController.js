@@ -65,6 +65,8 @@ const add_book = [
         // Add default image if not filled out
         if (!req.body.image) req.body.image = "https://cdn.vectorstock.com/i/500p/26/79/book-logo-icon-design-template-vector-30212679.jpg";
 
+        if (!req.body.username) req.body.username = "Anonymous";
+
         if (!errors.isEmpty()) {
             return res.status(400).render("books/create", { errors: errors.array() });
         }
@@ -107,10 +109,10 @@ const update_book = [
     async (req, res) => {
         const errors = validationResult(req);
         const id = req.params.id;
-        const { title, author, genre, image, review } = req.body;
+        const { title, author, genre, image, review, username } = req.body;
 
         if (!errors.isEmpty()) {
-            return res.status(400).render("error", { title: "Error", errors: errors.array() });
+            return res.status(400).render("error", { title: "Error", message: "Form missing required fields.", errors: errors.array() });
         }
 
         await db.updateBook({ id, field: "title", value: title });
@@ -118,6 +120,7 @@ const update_book = [
         await db.updateBook({ id, field: "genre", value: genre });
         await db.updateBook({ id, field: "image", value: image });
         await db.updateBook({ id, field: "review", value: review });
+        await db.updateBook({ id, field: "username", value: username });
 
         res.redirect(`/books/${id}`);
     },
