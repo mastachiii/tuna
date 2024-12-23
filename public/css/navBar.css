@@ -71,6 +71,14 @@ nav {
     }
 }
 
+@media (max-width: 1000px) {
+    nav {
+        .search-bar {
+            width: 12%;
+        }
+    }
+}
+
 @media (max-width: 600px) {
     nav {
         width: 90%;

@@ -138,21 +138,69 @@ a {
     }
 }
 
+@media (max-width: 1000px) {
+    .side-bar {
+        width: 10%;
+        margin-left: 3rem;
+        margin-right: 2rem;
+
+        p {
+            font-size: 8px;
+        }
+
+        > div {
+            p {
+                font-size: 8px;
+            }
+        }
+
+        > a {
+            font-size: 7px;
+        }
+    }
+
+    .book-container {
+        width: 80%;
+
+        div {
+            .book-wrapper {
+                height: 11.1rem;
+            }
+
+            img {
+                width: 7rem;
+                height: 11rem;
+            }
+
+            h4 {
+                font-size: 10px;
+                text-wrap: wrap;
+            }
+
+            p {
+                font-size: 8px;
+            }
+        }
+    }
+}
+
 @media (max-width: 600px) {
     main {
         flex-direction: column;
     }
 
     .side-bar {
-        width: 50%;
+        width: 30%;
         margin: 0 auto;
 
         > p {
             font-size: 8px;
+            text-align: center;
         }
 
         > div {
             flex-direction: row;
+            justify-content: center;
             align-items: center;
             gap: 1rem;
 
