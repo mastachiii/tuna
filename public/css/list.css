@@ -166,4 +166,36 @@ a {
             margin: 1rem auto 0 auto;
         }
     }
+
+    .book-container {
+        width: 100%;
+        margin: 1rem auto 0 auto;
+        justify-content: center;
+
+        div {
+            width: 5.4rem;
+            height: 10rem;
+
+            .book-wrapper {
+                height: 7.1rem;
+            }
+
+            img {
+                width: 5rem;
+                height: 7rem;
+            }
+
+            h4 {
+                width: 5rem;
+                margin-top: 4px;
+                font-size: 9px;
+                text-wrap: wrap;
+            }
+
+            p {
+                width: 5rem;
+                font-size: 6px;
+            }
+        }
+    }
 }
