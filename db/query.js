@@ -39,13 +39,13 @@ async function getBooksByTitle(title) {
     return rows;
 }
 
-function addBook({ title, author, genre, image, review }) {
+function addBook({ title, author, genre, image, username, review }) {
     pool.query(
-        `INSERT INTO books (title, author, genre, image, review, votes)
+        `INSERT INTO books (title, author, genre, image, review, username,votes)
          VALUES
-         ($1, $2, $3, $4, $5, 1);
+         ($1, $2, $3, $4, $5, $6, 1);
     `,
-        [title, author, genre, image, review]
+        [title, author, genre, image, review, username]
     );
 }
 

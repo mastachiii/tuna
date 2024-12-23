@@ -67,6 +67,7 @@ const add_book = [
 
         if (!req.body.username) req.body.username = "Anonymous";
 
+        console.log(req.body)
         if (!errors.isEmpty()) {
             return res.status(400).render("books/create", { errors: errors.array() });
         }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {title: book.title, cssPath: '/css/details.css'}) %>
+    <%- include('../partials/head', {title: `Tuna - ${book.title}`, cssPath: '/css/details.css'}) %>
     <body>
         <%- include('../partials/navbar') %>
         <!---->
@@ -14,7 +14,7 @@
                 </span>
                 <p><%= book.genre ? book.genre.join(', ') : '' %></p>
                 <p><%= book.review %></p>
-                <p>Review by <em><%= book.username %></em></p>
+                <p>Added by <em><%= book.username %></em></p>
             </div>
             <div>
                 <p><%= book.votes %></p>
