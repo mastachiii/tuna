@@ -14,3 +14,16 @@ A book recommendation list that everyone can contribute to.
 * Responsive Design
 
 ## Screenshots
+
+### Desktop
+
+![Main](/previewImages/main.png)
+
+![Details](/previewImages/details.png)
+
+### Mobile
+
+![Main](/previewImages/mainMobile.png)
+
+![Details](/previewImages/detailsMobile.png)
+
