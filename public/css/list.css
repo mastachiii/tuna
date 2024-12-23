@@ -137,3 +137,33 @@ a {
         }
     }
 }
+
+@media (max-width: 600px) {
+    main {
+        flex-direction: column;
+    }
+
+    .side-bar {
+        width: 50%;
+        margin: 0 auto;
+
+        > p {
+            font-size: 8px;
+        }
+
+        > div {
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+
+            > span {
+                margin-top: 4px;
+            }
+        }
+
+        a {
+            width: 50%;
+            margin: 1rem auto 0 auto;
+        }
+    }
+}
