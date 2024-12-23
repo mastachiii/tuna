@@ -5,10 +5,9 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 0;
     gap: 12px;
     background-color: transparent;
-
     div {
         display: flex;
         img {
@@ -73,6 +72,7 @@ nav {
 
 @media (max-width: 1000px) {
     nav {
+        padding: 1rem;
         .search-bar {
             width: 12%;
         }

@@ -80,3 +80,13 @@ html {
         background-color: #4d7c0f;
     }
 }
+
+@media (max-width: 600px) {
+    .book-form {
+        width: 90%;
+
+        button {
+            font-size: 8px;
+        }
+    }
+}
