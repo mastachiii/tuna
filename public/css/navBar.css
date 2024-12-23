@@ -92,8 +92,8 @@ nav {
         }
 
         div:nth-of-type(2) {
-            width: 30%;
-            gap: 8px;
+            width: 40%;
+            gap: 4px;
         }
 
         .search-bar {
@@ -103,14 +103,14 @@ nav {
                 font-size: 6px;
 
                 input {
-                    width: 60%;
+                    width: 100%;
                     margin-right: 2rem;
                 }
             }
         }
 
         a {
-            font-size: 5px;
+            font-size: 7px;
         }
     }
 }

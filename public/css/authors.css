@@ -52,3 +52,23 @@ a {
         }
     }
 }
+
+@media (max-width: 600px) {
+    .authors-container {
+        width: 90%;
+
+        div {
+            h1 {
+                font-size: 18px;
+            }
+
+            a {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 7px;
+            }
+        }
+    }
+}
