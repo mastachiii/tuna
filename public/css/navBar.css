@@ -105,6 +105,8 @@ nav {
                 input {
                     width: 100%;
                     margin-right: 2rem;
+                    font-size: 6px;
+                    vertical-align: middle;
                 }
             }
         }

@@ -29,3 +29,17 @@ a {
         color: #fbbf24;
     }
 }
+
+@media (max-width: 600px) {
+    .genres-container {
+        width: 90%;
+
+        h1 {
+            font-size: 18px;
+        }
+
+        a {
+            font-size: 14px;
+        }
+    }
+}
